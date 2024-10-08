@@ -14,6 +14,7 @@ package com.mycompany.app;
 
 import java.io.*;
 import java.util.stream.*;
+import java.util.Arrays;
 
 class FefiTest {
     
@@ -52,9 +53,12 @@ class FefiTest {
      * @param animalTypes string array with the types of animals to create Animal objects for.
      * @return an array of Animal objects created from the animalTypes.
      */
-    // public static Animal[] getAnimalsFromTypes_functional(String[] animalTypes) {
+    public static Animal[] getAnimalsFromTypes_functional(String[] animalTypes) {
     //     // YOUR IMPLEMENTATION HERE
-    // }
+    Stream<String> animalStream = Arrays.stream(animalTypes) ;
+     Animal [] animals = animalStream.map(x -> new Animal(x)).toArray(Animal[]::new);
+     return animals ;
+    }
     
 
      
@@ -69,5 +73,10 @@ class FefiTest {
         for (int i = 0 ; i <animalsIter.length ; i++){
             System.out.println(animalsIter[i].toString());
         }
+
+        final Animal[] animalsFunc = getAnimalsFromTypes_functional(animalTypes);  
+        for (int i = 0 ; i <animalsFunc.length ; i++){
+            System.out.println(animalsFunc[i].toString());
+        }      
     }
 }
