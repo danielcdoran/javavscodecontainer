@@ -9,12 +9,27 @@ import static com.mycompany.app.FefiTest.*;
 // import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 public class AppTest {
     public AppTest() {
         
     }
 
+    @Test
+    public void testFactoryNull() {
+        Animal result = makeAnimal(null);
+        assertTrue(result == null);
+    }
+
+    @Test
+    public void testFactoryNoCharactersInName() {
+        Animal result = makeAnimal("");
+        assertTrue(result == null);
+    }
+    @Test
+    public void testFactoryBlankCharactersInName() {
+        Animal result = makeAnimal(" ");
+        assertTrue(result == null);
+    }
     @Test
     public void testArraySizeWithIterative() {
         final String[] animalTypes = new String[] {"Cat", "Dog", "Bat", "Frog"};
