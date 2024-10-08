@@ -5,14 +5,6 @@
 
 package com.mycompany.app;
 
-// public class App {
-
-//     public static void main(String[] args) {
-//         System.out.println("Hello Remote World!");
-//     }
-// }
-
-import java.io.*;
 import java.util.stream.*;
 import java.util.Arrays;
 
@@ -59,7 +51,7 @@ class FefiTest {
     public static Animal[] getAnimalsFromTypes_functional(String[] animalTypes) {
         // // YOUR IMPLEMENTATION HERE
         Stream<String> animalStream = Arrays.stream(animalTypes);
-        Animal[] animals = animalStream.map(x -> new Animal(x)).toArray(Animal[]::new);
+        Animal[] animals = animalStream.map(x -> makeAnimal(x)).toArray(Animal[]::new);
         return animals;
     }
 
